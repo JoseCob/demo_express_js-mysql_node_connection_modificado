@@ -1,3 +1,5 @@
+//Codigo original
+/*
 // controllers/productos.js
 const productoModel = require('../models/productoModel');
 
@@ -15,4 +17,22 @@ function getProductoPorId(id) {
 module.exports = {
   getProductos,
   getProductoPorId
+};
+*/
+
+const productoModel = require('../models/productoModel');
+
+async function obtenerTodos(){
+  const productos = await productoModel.obtenerTodos();
+  return productos;
+}
+
+async function obtenerPorId(id){
+  const producto = await productoModel.obtenerPorId(id);
+  return producto;
+}
+
+module.exports = {
+  obtenerTodos,
+  obtenerPorId
 };
