@@ -1,11 +1,11 @@
-const mysql2 = require('mysql2');
+const mysql2 = require('mysql2/promise');
 const dotenv = require('dotenv');
 
 //Configura DotEnv
 dotenv.config();
 
 // Crear conexión a la base de datos MySQL
-const connection = mysql2.createConnection({
+const pool = mysql2.createPool({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
@@ -16,53 +16,86 @@ const connection = mysql2.createConnection({
     queueLimit: 0
 });
 
+
 // Función para insertar un nuevo usuario en la base de datos MySQL
 async function registrarUsuario(nombre, email, password) {
-    return new Promise((resolve, reject) => {
-        connection.query(
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query(
             'INSERT INTO usuarios (nombre, email, password_hash) VALUES (?, ?, ?)',
-            [nombre, email, password],
-            (err, results) => {
-            if (err) {
-                console.error(err.message);
-                reject(err);
-            } else {
-                console.log('Usuario insertado correctamente');
-                resolve();
-            }
-        });
-    });
+            [nombre, email, password]
+        );
+        connection.release();
+        console.log('Usuario insertado correctamente');
+    } catch (error) {
+        console.error('Error al insertar usuario:', error.message);
+        throw error;
+    }
 }
+
 
 // Función para obtener un usuario por su nombre de usuario
 async function obtenerUsuarioPorNombre(nombre) {
-    return new Promise((resolve, reject) => {
-        connection.query(
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query(
             'SELECT * FROM usuarios WHERE nombre = ?',
-            [nombre],
-            (err, results) => {
-            if (err) {
-                console.error(err.message);
-                reject(err);
-            } else {
-                resolve(results[0]);
-            }
-        });
-    });
+            [nombre]
+        );
+        connection.release();
+        return results[0] || null;
+    } catch (error) {
+        console.error('Error al obtener usuario por nombre:', error.message);
+        throw error;
+    }
 }
+
 
 // Función para obtener un usuario por su ID
 async function getUserById(id) {
-    return new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM usuarios WHERE id = ?', [id], (err, results) => {
-            if (err) {
-                console.error(err.message);
-                reject(err);
-            } else {
-                resolve(results[0]);
-            }
-        });
-    });
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query(
+            'SELECT * FROM usuarios WHERE id = ?',
+            [id]
+        );
+        connection.release();
+        return results[0] || null;
+    } catch (error) {
+        console.error('Error al obtener usuario por ID:', error.message);
+        throw error;
+    }
+}
+
+//Funcion para obtener todos los productos de la base de datos
+async function obtenerTodos() {
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query(
+            'SELECT * FROM productos'
+        );
+        connection.release();
+        return results;
+    } catch (error) {
+        console.error('Error al obtener los productos:', error.message);
+        throw error;
+    }
+}
+
+//Funcion para obtener un producto por su ID
+async function obtenerPorId(id) {
+    try {
+        const connection = await pool.getConnection();
+        const [results] = await connection.query(
+            'SELECT * FROM productos WHERE id = ?',
+            [id]
+        );
+        connection.release();
+        return results[0] || null;
+    } catch (error) {
+        console.error('Error al obtener producto por ID:', error.message);
+        throw error;
+    }
 }
 
 //connection.end();
@@ -70,5 +103,7 @@ async function getUserById(id) {
 module.exports = {
     registrarUsuario,
     obtenerUsuarioPorNombre,
-    getUserById
+    getUserById,
+    obtenerTodos,
+    obtenerPorId
 };

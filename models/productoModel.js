@@ -24,7 +24,7 @@ module.exports = {
 };
 */
 
-const productoDB = require('../database/tables/productos');
+const productoDB = require('../db');
 
 
 class Producto{
@@ -56,7 +56,6 @@ async function obtenerPorId(id){
       return new Producto(producto.id, producto.nombre, producto.descripcion, 
         producto.cantidad, producto.precio, producto.imagen)
     }
-    return null;
   } catch (error) {
     console.error('Error al obtener el producto por ID:', error);
     throw error;

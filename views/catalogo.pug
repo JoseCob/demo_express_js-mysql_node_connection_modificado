@@ -6,7 +6,7 @@ block content
     .producto-container
       each producto in productos
         .producto
-          img(src=`/images/${producto.imagen}`, alt=producto.nombre)
+          img(src=`${producto.imagen}`, alt=producto.nombre)
           h2= producto.nombre
           p Descripción del Producto: #{producto.descripcion}
           p Disponible: #{producto.cantidad}
