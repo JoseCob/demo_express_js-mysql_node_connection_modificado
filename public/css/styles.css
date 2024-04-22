@@ -192,7 +192,7 @@ table {
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
-  border-radius: 20px;
+  border-radius: 20px 20px 0 0;
   border: 1px solid black;
 }
 table th, table td {
@@ -202,7 +202,7 @@ table th, table td {
 table tr:nth-child(even) {
   background-color: #DFCCFB;
 }
-table tr:hover {
+table tr:hover td {
   background-color: #D9ACF5;
 }
 
