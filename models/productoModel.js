@@ -26,7 +26,6 @@ module.exports = {
 
 const productoDB = require('../db');
 
-
 class Producto{
   constructor(id, nombre, descripcion, cantidad, precio, imagen) {
     this.id = id;

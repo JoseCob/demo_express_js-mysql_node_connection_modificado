@@ -9,7 +9,7 @@ router.post('/:id', (req, res) => {
     const itemIndex = carrito.findIndex(item => item.id === idProducto);
     if (itemIndex !== -1) {
       const removedItem = carrito.splice(itemIndex, 1)[0];
-      const producto = productosController.getProductoPorId(idProducto);
+      const producto = productosController.obtenerPorId(idProducto);
       if (producto) {
         producto.cantidad += removedItem.cantidad;
       }
