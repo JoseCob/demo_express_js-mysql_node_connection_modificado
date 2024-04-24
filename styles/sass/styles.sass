@@ -4,10 +4,10 @@ $uniquifier: 'Noto style'
 $weight: 400
 
 $mainColor: #F0F3FF
-$navColor: #8E7AB5
+$navColor: #d93d6f
 $textColor: #986D8E
-$titleColor: #E493B3
-$hoverColor: #EEA5A6
+$titleColor: #ef156b
+$hoverColor: #b70049
 
 $border-radius: 20px
 $display: flex
@@ -61,14 +61,14 @@ i
 .badge
   position: relative
   top: -2px
-  background-color: $hoverColor
-  color: white
+  background-color: #ffffff
+  color: black
   border-radius: 50%
   padding: 5px 8px
   font-size: 12px
 
 .container
-  max-width: 800px
+  max-width: 100%
   margin: 5% 20% 0 20%
 
 h1
@@ -84,7 +84,7 @@ h1
   max-width: 400px
   margin: 0 auto
   padding: 20px
-  border: 1px solid #ccc
+  border: 1px solid $navColor
   border-radius: 5px
   position: absolute
   top: 50%
@@ -112,24 +112,27 @@ h1
     color: white
     background-color: $navColor
     border-radius: $border-radius
+    border: 1px solid $navColor
     align-self: center
   
     &:hover
       background-color: $hoverColor
 
 #mostrarContrasena
+  margin-top: 12px
   width: 80px
   align-self: flex-end
 
 .form-label
   font-size: 16px
-  margin: 10px 0
+  margin: 20px 0
 
 .form-input
   width: 100%
   padding: 8px
   font-size: 16px
   border: 1px solid $navColor
+  outline-color: $hoverColor
   border-radius: $border-radius
   align-self: center
   
@@ -171,16 +174,18 @@ h1
   width: auto /* Ajusta el ancho del scrollbar según tus preferencias */
 
 .table-responsive::-webkit-scrollbar-thumb /* Estilo para el mango (thumb) del scrollbar en table-responsive */
-  background-color: #DFCCFB /* Color del mango del scrollbar */
+  background-color: #e72573 /* Color del mango del scrollbar */
   border-radius: $border-radius /* Ajusta el radio de borde del mango del scrollbar */
 
 .table-responsive::-webkit-scrollbar-track /* Estilo para la pista (track) del scrollbar en table-responsive */
-  background-color: #D9ACF5 /* Color de la pista del scrollbar */
+  background-color: #f09bbd /* Color de la pista del scrollbar */
   border-radius: 10px /* Ajusta el radio de borde de la pista del scrollbar */
   margin: 20px
 
 
 table
+  background-color: white
+  color: black
   width: 100%
   //margin: 20% 0 20% 0
   border-spacing: 0
@@ -193,10 +198,11 @@ table
     text-align: center
 
   tr:nth-child(even)
-    background-color: #DFCCFB
+    background-color: #f6007f46
 
   tr:hover td
-    background-color: #D9ACF5
+    background-color: #fc5799
+    color: white
 
 /* Apply a border to the right of all but the last column */
 table th:not(:last-child),
@@ -237,7 +243,7 @@ table td
 
 .procesar-compra-container
   text-align: center
-  margin: 10%
+  margin: 4%
 
 .procesar-compra-button
   padding: 10px 20px
@@ -293,12 +299,10 @@ p.empty-cart
 
 .producto-container
   display: grid
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
-  gap: 10px
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+  gap: 80px
 
 .producto
-  border: 1px solid #8E7AB5
-  border-radius: 20px
   padding: 5px
   text-align: center
   justify-content: center
@@ -404,16 +408,24 @@ p.empty-cart
   // Aquí van los estilos específicos para tablets
 
   .container
-    margin: 5% 15% 5% 15%
+    margin: 5% 4% 0% 3%
 
   .centered-index-content
     margin: 5% 10% 0 10%
 
 // Media queries para desktops
-@media only screen and (min-width: 1025px)
+@media only screen and (min-width: 1025px) and (max-width: 1920px)
   // Aquí van los estilos específicos para desktops
   .container
-    margin: 5% 25% 5% 25%
+    margin: 5% 5% 0% 5%
 
   .centered-index-content
-    margin: 5% 10% 0 10%
+    margin: 5% 25% 0 25%
+
+//media queries para HD
+@media only screen and (min-width: 1921px)
+  .container
+    margin: 5% 38% 0% 38%
+
+  .centered-index-content
+    margin: 5% 30% 0% 30%

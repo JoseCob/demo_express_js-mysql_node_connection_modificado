@@ -6,7 +6,8 @@ const authMiddleware = require('../middlewares/authMiddleware'); // Middleware p
 
 // Ruta para mostrar el formulario de login
 router.get('/', (req, res) => {
-  res.render('login', { title: 'Iniciar sesión' });
+  const user = req.user != null ? `Bienvenido ${req.user.nombre}` : ''; // Verificar si el usuario ha iniciado sesión
+  res.render('login', { title: 'Iniciar sesión', user });
 });
 
 

@@ -20,7 +20,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   padding: 5px 0;
   text-align: center;
 }
@@ -44,7 +44,7 @@ nav ul li a {
   transition: background-color 0.3s;
 }
 nav ul li a:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 
 i {
@@ -54,21 +54,21 @@ i {
 .badge {
   position: relative;
   top: -2px;
-  background-color: #EEA5A6;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   border-radius: 50%;
   padding: 5px 8px;
   font-size: 12px;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 5% 20% 0 20%;
 }
 
 h1 {
   text-align: center;
-  color: #E493B3;
+  color: #ef156b;
 }
 
 .centered-index-content {
@@ -80,7 +80,7 @@ h1 {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #d93d6f;
   border-radius: 5px;
   position: absolute;
   top: 50%;
@@ -108,37 +108,40 @@ h1 {
 }
 .form-group button {
   color: white;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   border-radius: 20px;
+  border: 1px solid #d93d6f;
   align-self: center;
 }
 .form-group button:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 
 #mostrarContrasena {
+  margin-top: 12px;
   width: 80px;
   align-self: flex-end;
 }
 
 .form-label {
   font-size: 16px;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .form-input {
   width: 100%;
   padding: 8px;
   font-size: 16px;
-  border: 1px solid #8E7AB5;
+  border: 1px solid #d93d6f;
+  outline-color: #b70049;
   border-radius: 20px;
   align-self: center;
 }
 .form-input input:hover, .form-input input:focus, .form-input input:active, .form-input input:focus-visible {
-  border: 1px solid #EEA5A6;
+  border: 1px solid #b70049;
   outline-width: 1px;
   outline-style: solid;
-  outline-color: #EEA5A6;
+  outline-color: #b70049;
 }
 
 .show-password-label {
@@ -148,7 +151,7 @@ h1 {
 .submit-button {
   padding: 10px;
   font-size: 16px;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   color: white;
   border: none;
   border-radius: 20px;
@@ -157,7 +160,7 @@ h1 {
   width: 100%;
 }
 .submit-button:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 
 .register-link {
@@ -178,17 +181,19 @@ h1 {
 }
 
 .table-responsive::-webkit-scrollbar-thumb {
-  background-color: #DFCCFB;
+  background-color: #e72573;
   border-radius: 20px;
 }
 
 .table-responsive::-webkit-scrollbar-track {
-  background-color: #D9ACF5;
+  background-color: #f09bbd;
   border-radius: 10px;
   margin: 20px;
 }
 
 table {
+  background-color: white;
+  color: black;
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
@@ -200,10 +205,11 @@ table th, table td {
   text-align: center;
 }
 table tr:nth-child(even) {
-  background-color: #DFCCFB;
+  background-color: rgba(246, 0, 127, 0.2745098039);
 }
 table tr:hover td {
-  background-color: #D9ACF5;
+  background-color: #fc5799;
+  color: white;
 }
 
 /* Apply a border to the right of all but the last column */
@@ -233,14 +239,14 @@ table td {
 .action-buttons button {
   padding: 5px 10px;
   margin-right: 5px;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
 }
 .action-buttons button:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 .action-buttons span {
   margin: 0 5px;
@@ -249,7 +255,7 @@ table td {
 
 .procesar-compra-container {
   text-align: center;
-  margin: 10%;
+  margin: 4%;
 }
 
 .procesar-compra-button {
@@ -285,19 +291,19 @@ p.empty-cart {
   flex: 1;
   padding: 8px;
   font-size: 16px;
-  border: 1px solid #8E7AB5;
+  border: 1px solid #d93d6f;
   border-radius: 20px;
 }
 .search-bar input:hover, .search-bar input:focus, .search-bar input:active, .search-bar input:focus-visible {
-  border: 1px solid #EEA5A6;
+  border: 1px solid #b70049;
   outline-width: 1px;
   outline-style: solid;
-  outline-color: #EEA5A6;
+  outline-color: #b70049;
 }
 .search-bar button {
   padding: 8px 15px;
   margin-left: 10px;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   color: white;
   border: none;
   border-radius: 20px;
@@ -305,18 +311,16 @@ p.empty-cart {
   transition: background-color 0.3s;
 }
 .search-bar button:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 
 .producto-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 80px;
 }
 
 .producto {
-  border: 1px solid #8E7AB5;
-  border-radius: 20px;
   padding: 5px;
   text-align: center;
   justify-content: center;
@@ -333,21 +337,21 @@ p.empty-cart {
 .producto h2 {
   font-size: 1.5rem;
   margin-bottom: 5px;
-  color: #E493B3;
+  color: #ef156b;
 }
 .producto p {
   margin-bottom: 10px;
 }
 .producto button {
   padding: 8px 15px;
-  background-color: #8E7AB5;
+  background-color: #d93d6f;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
 }
 .producto button:hover {
-  background-color: #EEA5A6;
+  background-color: #b70049;
 }
 
 .button-container {
@@ -427,18 +431,26 @@ p.empty-cart {
 }
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
   .container {
-    margin: 5% 15% 5% 15%;
+    margin: 5% 4% 0% 3%;
   }
   .centered-index-content {
     margin: 5% 10% 0 10%;
   }
 }
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
   .container {
-    margin: 5% 25% 5% 25%;
+    margin: 5% 5% 0% 5%;
   }
   .centered-index-content {
-    margin: 5% 10% 0 10%;
+    margin: 5% 25% 0 25%;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .container {
+    margin: 5% 38% 0% 38%;
+  }
+  .centered-index-content {
+    margin: 5% 30% 0% 30%;
   }
 }
 

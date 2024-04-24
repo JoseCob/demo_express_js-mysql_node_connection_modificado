@@ -1,3 +1,4 @@
+//../db.js
 const mysql2 = require('mysql2/promise');
 const dotenv = require('dotenv');
 
@@ -97,8 +98,6 @@ async function obtenerPorId(id) {
         throw error;
     }
 }
-
-//connection.end();
 
 module.exports = {
     registrarUsuario,

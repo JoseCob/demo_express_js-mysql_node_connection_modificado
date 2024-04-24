@@ -24,6 +24,7 @@ module.exports = {
 };
 */
 
+//models/productoModel.js
 const productoDB = require('../db');
 
 class Producto{

@@ -46,6 +46,11 @@ async function comparePassword(passwordString, bdHash){
     return compareHashes;
 }
 
+function clearSession(req, res, next){
+    res.clearCookie('token');
+    res.redirect('/login');
+}
+
 module.exports = {
     authenticate,
     generateToken,
