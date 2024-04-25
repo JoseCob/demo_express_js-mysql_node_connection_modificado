@@ -19,7 +19,7 @@ module.exports = {
   getProductoPorId
 };
 */
-
+const productoDB = require('../db');
 const productoModel = require('../models/productoModel');
 
 async function obtenerTodos(){
@@ -32,7 +32,17 @@ async function obtenerPorId(id){
   return producto;
 }
 
+async function actualizarCantidad(id, nuevaCantidad) {
+  try {
+      await productoDB.actualizarCantidad(id, nuevaCantidad);
+  } catch (error) {
+      console.error('Error al actualizar la cantidad del producto en la base de datos:', error);
+      throw error;
+  }
+}
+
 module.exports = {
   obtenerTodos,
-  obtenerPorId
+  obtenerPorId,
+  actualizarCantidad
 };

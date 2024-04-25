@@ -23,9 +23,11 @@ router.post('/:id', async (req, res) => {
                     cantidad: 1
                 });
             }
+            // Disminuir la cantidad disponible del producto en la base de datos
+            await productosController.actualizarCantidad(idProducto, producto.cantidad - 1);
 
             // Disminuir la cantidad disponible del producto
-            producto.cantidad--;
+            //producto.cantidad--;
 
             // Actualizar el carrito en la sesión
             req.session.carrito = carrito;
