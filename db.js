@@ -99,25 +99,10 @@ async function obtenerPorId(id) {
     }
 }
 
-async function actualizarCantidad(id, nuevaCantidad) {
-    try {
-        const connection = await pool.getConnection();
-        await connection.query(
-            'UPDATE productos SET cantidad = ? WHERE id = ?',
-            [nuevaCantidad, id]
-        );
-        connection.release();
-    } catch (error) {
-        console.error('Error al actualizar la cantidad del producto en la base de datos:', error.message);
-        throw error;
-    }
-}
-
 module.exports = {
     registrarUsuario,
     obtenerUsuarioPorNombre,
     getUserById,
     obtenerTodos,
-    obtenerPorId,
-    actualizarCantidad
+    obtenerPorId
 };

@@ -1,4 +1,4 @@
-//actualizar-cantidad.js
+//routes/actualizar-cantidad.js
 const express = require('express');
 const router = express.Router();
 const productosController = require('../controllers/productosController');

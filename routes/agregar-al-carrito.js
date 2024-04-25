@@ -14,20 +14,29 @@ router.post('/:id', async (req, res) => {
             let productoEnCarrito = carrito.find(item => item.id === idProducto);
 
             if (productoEnCarrito) {
-                productoEnCarrito.cantidad++;
+                if (productoEnCarrito.cantidad < producto.cantidad) {
+                    productoEnCarrito.cantidad++;
+                    producto.cantidad--; // Disminuir la cantidad disponible del producto
+                } else {
+                    // La cantidad en el carrito ya alcanzó el límite
+                    res.status(400).send('Se alcanzo el valor máximo de este producto');
+                    return;
+                }
             } else {
-                carrito.push({
-                    id: idProducto,
-                    nombre: producto.nombre,
-                    precio: producto.precio,
-                    cantidad: 1
-                });
+                if (producto.cantidad > 0) {
+                    carrito.push({
+                        id: idProducto,
+                        nombre: producto.nombre,
+                        precio: producto.precio,
+                        cantidad: 1
+                    });
+                    producto.cantidad--; // Disminuir la cantidad disponible del producto
+                } else {
+                    // El producto no está disponible
+                    res.status(404).send('Producto no disponible');
+                    return;
+                }
             }
-            // Disminuir la cantidad disponible del producto en la base de datos
-            await productosController.actualizarCantidad(idProducto, producto.cantidad - 1);
-
-            // Disminuir la cantidad disponible del producto
-            //producto.cantidad--;
 
             // Actualizar el carrito en la sesión
             req.session.carrito = carrito;
